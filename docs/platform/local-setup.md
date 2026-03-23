@@ -1,306 +1,203 @@
 # Local Setup
 
-This page describes preparing your local environment to run the tools you need for GovCMS, and then setting up a new project.
+This page describes preparing your local environment to run the tools you need for GovCMS, and then setting up a new
+project.
 
-Since we cater for a variety of developers with different experience, and many are working with limited tools in government, we can't provide perfect documentation for everyone. If you have issues please refer to [Getting help](../index.md#getting-help).
+Since we cater for a variety of developers with different experience, and many are working with limited tools in
+government, we can't provide perfect documentation for everyone. If you have issues please refer to
+[Getting help](../index.md#getting-help).
 
-## Dependencies
+## Prerequisites
 
-If your site is using the GovCMS platform, and you want to develop this site locally, you will need these tools.
+In order to run the local development environment, bundled in GovCMS, you need certain skills and experience in the
+following:
 
-* [Git](https://git-scm.com/downloads)
-* Docker & docker-compose [Windows](https://docs.docker.com/docker-for-windows/install/), [OSX](https://docs.docker.com/docker-for-mac/install/)
-* [Pygmy](https://pygmy.readthedocs.io/en/master/installation/)
-* [Ahoy](http://ahoy-cli.readthedocs.io/en/latest/#installation) (recommended)
+* Using terminal to execute commands, launch programs, adjust filesystem ownership and permissions
+* Installing and managing software packages
+* Installing and debugging installation packages, via Ruby gem package manager
+* Experience managing websites via Drush, executed in the terminal
+* Experience managing Drupal configuration.
 
-## Note for Windows
+## Software Requirements
 
-We are trying to improve the Windows experience. Most commands need to be carried out in Powershell but some may require [Git-bash](https://gitforwindows.org/). Use both tools with elevated permissions. DOS prompt is not appropriate for local development.
+Supported platforms are:
 
-See also the [Amazee docs](https://docs.amazee.io/local_docker_development/windows.html#windows) as well as the Windows-specific tips in the [SaaS developer guide](../guides/saas-developer-guide.md).
+* MacOS - 10.14 (Mojave) and above
+* Windows 10 Pro
 
-## Upcoming opportunities
+  !!! note
+  Windows 10 users on version 1903 or higher can use Docker with WSL2, which offers performance improvements and,
+  since it uses a full Linux environment, the commands are the same as those for Mac.
 
-There is a [trial version of Pygmy](https://github.com/fubarhouse/pygmy-go) written in Go.
+Before spinning up your local development environment, make sure the following software is installed and runs the latest
+versions.
 
-This will help to address many of the common issues users have had with Pygmy in the past including:
+### Docker Desktop or Rancher Desktop
 
-- Windows support (which may help Windows users who cannot install Ruby gems at present).
-- Granular control over ports and services (run Pygmy on HTTPS with no effort; run phpmyadmin/portainer as well)
+#### Docker Desktop
 
-### Instructions to install Pygmy-go (Mac/Linux/WSL)
+Use the [latest stable version](https://docs.docker.com/install/). It is available for macOS and Windows.
 
-1. Clone the pygmy-go repo
+#### Rancher Desktop
 
-    Change to directory. e.g. `cd /Users/[username]/programs`
-    (replace [username] with your username)
+[Rancher Desktop](https://rancherdesktop.io/) is the open source version of Docker Desktop and works in exactly the same
+way.
 
-    Run `git clone https://github.com/pygmystack/pygmy.git pygmy-go`
+It is safe to install both Docker and Rancher Desktop. But only one should be used at a time. That is, completely exit
+one before using the other.
 
-    Change to directory to pygmy-go. e.g.
+**Note**: Before starting with Rancher Desktop please read
+[Recommended read about Rancher Desktop](https://www.drupaleasy.com/blogs/ultimike/2024/01/test-driving-rancher-desktop-docker-provider-ddev-macos).
 
-    * `cd /Users/[username]/programs/pygmy-go` (Mac)
-    * `cd /home/[username]/programs/pygmy-go` (Linux/WSL)
+If you are switching from Docker Desktop to Rancher Desktop or vice versa, you need to run one of the following commands.
 
-2. Compile pygmy-go to make pygmy executable
+Switching from Docker Desktop to Rancher Desktop:
 
-    !!! note
-        * If you have a SSL scanning program, e.g. zscaler by your organization, ensure the extra ssl cert is added to docker file first to avoid error "unable to get local issuer certificate"!
-        * If you get error `reading https://proxy.golang.org/golang.org/[projectfile]: 403 Forbidden`, then add `ENV GOPROXY="https://goproxy.io,direct"` prior to `WORKDIR` instruction in the `Dockerfile`. and try again a few times.
+```docker context use rancher-desktop```
 
-    For Zscaler WSL, see title "Instructions for Zscaler (windows)".
+Switching from Rancher Desktop to Docker Desktop:
 
-    ??? info "Instructions for Zscaler (mac)"
+```docker context use docker-desktop```
 
-        **Option 1 (export PEM)**
+To list all your installed docker contexts:
 
-        MAC - export certificate:
+```docker context ls```
 
-        1. Open the MAC Settings app
-        2. GO to KeyChain Access
-        3. GO to System / System roots
-        4. Find Zscaler Root SSL
-        5. Export the SSL file, Set the file format as "Privacy Enhanced Mail (.pem)" to [pygmy folder] -> e.g. 'zscaler.pem'.
-        6. Replace these lines in the `[pygmy folder]/Dockerfile`:
+### Pygmy
 
-        ```
-        COPY external/ /go/src/github.com/pygmystack/pygmy/external/
+The latest instructions are available on the
+[pygmystack GitHub repo](https://github.com/pygmystack/pygmy?tab=readme-ov-file#installation).
 
-        WORKDIR /go/src/github.com/pygmystack/pygmy/
-        RUN GO111MODULE=on go mod verify
-        ```
+#### Linux & MacOS
 
-        With:
+This can also be installed on WSL-based systems using [Homebrew](https://brew.sh/).
 
-        ```
-        COPY external/ /go/src/github.com/pygmystack/pygmy/external/
+```bash
+brew tap pygmystack/pygmy;
+brew install pygmy;
+```
 
-        COPY 'zscaler.pem' '/tmp/zscaler.pem'
-        RUN CACHE_BUST_COUNTER=1 && cp '/tmp/zscaler.pem' '/usr/local/share/ca-certificates/zscaler.pem'
-        RUN update-ca-certificates
+#### Windows
 
-        WORKDIR /go/src/github.com/pygmystack/pygmy/
-        RUN GO111MODULE=on GOPROXY='proxy.golang.org,direct' go mod tidy
-        RUN GO111MODULE=on go mod verify
-        ```
+```bash
+git clone https://github.com/pygmystack/pygmy.git && cd pygmy;
+make build;
+cp ./builds/pygmy-darwin /usr/local/bin/pygmy;
+chmod +x /usr/local/bin/pygmy;
+```
 
-        **Option 2 (export CER)**
+### Ahoy
 
-        MAC - export certificate:
+[Ahoy (version 2)](https://ahoy-cli.readthedocs.io/en/latest/#version-2): currently MacOS and Linux only.
 
-        1. Open the MAC Settings app
-        2. GO to KeyChain Access
-        3. GO to System / System roots
-        4. Find Zscaler Root SSL
-        5. Export the SSL file, Set the file format as "Certificate (.cer)" to [pygmy folder] -> e.g. 'zscaler.cer'.
-        6. Replace these lines in the `[pygmy folder]/Dockerfile`:
+## Setting up your access and keys
 
-        ```
-        COPY external/ /go/src/github.com/pygmystack/pygmy/external/
+If you are setting this up on the GovCMS platform, you will need access to the GovCMS Git Repository. Articles on how to
+set that access up can be found on the GovCMS Knowledge Base.
 
-        WORKDIR /go/src/github.com/pygmystack/pygmy/
-        RUN GO111MODULE=on go mod verify
-        ```
 
-        With:
+## Typical local development workflow
 
-        ```
-        COPY external/ /go/src/github.com/pygmystack/pygmy/external/
+### Start pygmy:
 
-        RUN apk update
-        RUN apk add curl openssl
-        RUN CACHE_BUST_COUNTER=1 && echo "Cache bust counter: $CACHE_BUST_COUNTER"
-        COPY zscaler.cer /tmp/
-        RUN openssl x509 -inform DER -in '/tmp/zscaler.cer' -out '/usr/local/share/ca-certificates/zscaler.crt'
-        RUN update-ca-certificates
+```pygmy up```
 
-        WORKDIR /go/src/github.com/pygmystack/pygmy/
-        RUN GO111MODULE=on GOPROXY='proxy.golang.org,direct' go mod tidy
-        RUN GO111MODULE=on go mod verify
-        ```
+### Build and start the local environment
 
-        See <https://help.zscaler.com/zia/adding-custoem-certificate-application-specific-trusted-store#docker-file>
+macOS: ```ahoy build```
 
-3. Run `make build`
+Windows: ```docker compose up -d```
 
-    ??? tip "Debug if pygmy-go build fails"
-        Edit `[pygmy folder]/Makefile`
+### Log in to the local GovCMS website
 
-        Replace `docker build -t pygmy .`
+Once the build completes successfully, you can log in to the local copy of your GovCMS website by requesting a one-time
+login link:
 
-        With `docker build --no-cache -t pygmy --progress=plain .`
+macOS and Linux: ```ahoy login```
 
-        and try again to see the error message.
+Windows: ```docker compose exec -T test drush uli```
 
-4. Add pygmy to PATH and make executable.
+### Start or stop the local environment
 
-    Change directory to the builds folder:
-    e.g.
+You may start the local environment without building; however, we recommend to rebuild your environment every time you
+work on a different git branch or task.
 
-    * `cd /Users/[username]/programs/pygmy-go/builds` (Mac)
-    * `cd /home/[username]/programs/pygmy-go/builds` (Linux/WSL)
+macOS and Linux: ```ahoy stop; ahoy start```
 
-5. Copy the correct executable file to the user binaries folder.
+Windows: ```docker compose stop -d; docker compose start -d```
 
-    e.g. `cp ./builds/[pygmy-file] /usr/local/bin/pygmy`
+### Destroy and rebuild the local environment
 
-    Where [pygmy file] is:
+macOS and Linux: ```ahoy down; ahoy build```
 
-    * `pygmy-darwin-arm64` (M1 (arm) Mac)
-    * `pygmy-linux-amd64` (Linux / WSL - most Linux OSs are 64bit)
-    * `pygmy-darwin-amd64` (Intel Mac)
+Windows: ```docker compose down -d; docker compose up -d```
 
-    So for example:
+## Update your local GovCMS version
 
-    * for an M1 Mac, run `sudo cp ./builds/pygmy-darwin-arm64 /usr/local/bin/pygmy`
-    * for an Linux / WSL, run `sudo cp ./builds/pygmy-linux-amd64 /usr/local/bin/pygmy`
+!!! note
+Before updating your local GovCMS version, we recommend you back up your local database with the following
+command:
+```ahoy mysql-dump [filename]```
 
-6. Mark file permission as executable.
+GovCMS is available publicly as a pre-built Docker container. All you have to do is to run ahoy pull to download the
+latest containers, followed by ahoy build to build the distribution:
 
-    `sudo chmod +x /usr/local/bin/pygmy`
+macOS and Linux: ```ahoy pull```
 
-    Done, run `pygmy up` as usual.
+Windows: ```docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep govcms/ | grep -v none | xargs -n1 docker pull | cat```
 
-### Instructions to install Pygmy-go (Windows)
+## Available ahoy commands
 
-!!! warning
-    DO NOT USE if using WSL, use WSL instructions instead.
+Using the terminal, and while inside your GitLab repo on your local, run the command `ahoy` without any parameters, to
+get a list of all available commands. You can study the .ahoy.yml file in your GitLab repo, to see the internal docker
+commands for each ahoy command (which is basically what you need to run on Windows).
 
-1. Install choco - Open PowerShell as Admin and run:
+## Troubleshooting and additional information
 
-    ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-    ```
+### Unable to install Pygmy on macOS
 
-2. Install make - Run `choco install make`
+An attempt to install pygmy via the gem install pygmy command on macOS may result in the following error:
 
-3. Clone the pygmy-go repo
+```You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory```
 
-    Change to directory. e.g. `cd C:\programs`
+To resolve, run the following commands (this will install pygmy into an alternative directory):
 
-    Run `git clone https://github.com/pygmystack/pygmy.git pygmy-go`
+```bash
+gem update --system
+gem install -n /usr/local/bin/ pygmy
+```
 
-    Change to directory to pygmy-go. e.g. `cd C:\programs\pygmy-go`
+### ERROR: Service 'cli' mounts volumes from 'amazeeio-ssh-agent', which is not the name of a service or container
 
-4. Compile pygmy-go to make pygmy.exe
+If you see this error when you attempt to run any ahoy command, then you have not installed pygmy. See the "Software
+Requirements" section at the top of this document.
 
-    !!! note
-        * If you have a SSL scanning program, e.g. zscaler by your organization, ensure the extra ssl cert is added to docker file first to avoid error "unable to get local issuer certificate"!
-        * If you get error `reading https://proxy.golang.org/golang.org/[projectfile]: 403 Forbidden`, then add `ENV GOPROXY="https://goproxy.io,direct"` prior to `WORKDIR` instruction in the `Dockerfile`. and try again a few times.
+### ERROR: failed to resolve source metadata for ...
 
-    ??? info "Instructions for Zscaler (windows)"
+If you get the following error when running ahoy build/up:
 
-        1. Open Windows Start menu
-        2. "mmc.exe"
-        3. File
-        4. add /remove snap-in
-        5. Certificates
-        6. Add
-        7. Either My account or Computer account, doesn't matter (won't appear if not run as admin - so can be skipped)
-        8. OK
-        9. [In left side bar]
-        10. Trusted Root Certification Authorities
-        11. Certificates
-        12. Find Zscaler Root Certificate
-        13. Right click
-        14. Tasks
-        15. Export (Format CER - base64) to [pygmy folder]/zscaler.cer
+```bash 
+ERROR [test internal] load metadata for docker.io/library/[sitename]:latest
+target php: failed to solve: [sitename]: failed to resolve source metadata for docker.io/library/[sitename]:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+```
 
-        Then Add the following lines to the `[pygmy folder]/Dockerfile` after `COPY service/ /go/src/github.com/pygmystack/pygmy/service/`
+This is because the containers are built in parallel to each other, and some containers finish in the wrong order. To
+fix this you can either build the CLI container first by running the following command first:
 
-        ```dockerfile
-        RUN apk update
-        RUN apk add curl openssl
-        RUN CACHE_BUST_COUNTER=1 && echo "Cache bust counter: $CACHE_BUST_COUNTER"
-        COPY zscaler.cer /tmp/
-        RUN openssl x509 -inform PEM -in /tmp/zscaler.cer -out /usr/local/share/ca-certificates/zscaler.crt
-        RUN update-ca-certificates
-        ```
+```docker compose build cli```
 
-        Note: if you get error `Could not find certificate from /tmp/zscaler.cer` then your `zscaler.cer` is probably a `DER encoded binary X.509 (.CER)` but it should be a **`Format CER - base64`** format, so reexport the certificate and re-edit the Dockerfile to increase the `CACHE_BUST_COUNTER=1` so the cache get busted, thus grabs the new exported new certificate file.
+and then run:
 
-        See <https://help.zscaler.com/zia/adding-custoem-certificate-application-specific-trusted-store#docker-file>
+```ahoy up```
+OR
+```ahoy build```
 
-    Run `make build;`
+or you can direct composer not to use the new BAKE system by either running:
 
-5. Add pygmy.exe to PATH
+```COMPOSE_BAKE=false ahoy up```
+OR
+```COMPOSE_BAKE=false ahoy build```
 
-    Run `systempropertiesadvanced.exe` => Advanced tab => Environment Variables > Click edit on PATH for System variables.
-    Add builds to that PATH property e.g. `C:\programs\pygmy-go\builds`
+Or apply the fix to your entire shell instance by running:
 
-6. Open to new command prompt (cmd.exe)
-
-    This will have the new PATH, then run `pygmy up` as usual.
-
-### Changing the pygmy-go ports
-
-1. To change the pygmy-go's haproxy port (website port), add a file `.pygmy.yml` to your user folder. e.g. `C:\users\myusername\.pygmy.yml`
-
-2. And Put the contents (adjust 7088 / 7089 to the port you want)
-
-    ```yml
-    services:
-      amazeeio-haproxy:
-        HostConfig:
-          PortBindings:
-            80/tcp:
-              - HostPort: 7088
-            443/tcp:
-              - HostPort: 7089
-    ```
-
-3. Then clean up pygmy-go's containers and start them again.
-    (ignore the error: Error response from daemon: error while removing network: network amazeeio-network id deadXXXX has active endpoints)
-
-    ```bash
-    pygmy clean
-    pygmy up
-    ```
-
-    You should see the message: `Using config file: C:\Users\myusername\.pygmy.yml` when `pygmy up` is run.
-
-    You can also see the current configuration by running `pygmy export --output /path/to/output-config-file.yml`
-
-## Building your project
-
-These instructions will help you set up your project locally. It assumes that you have been provisioned with a GovCMS project in [Gitlab](https://projects.govcms.gov.au). If you have not been provisioned with a project, you can **test** this process by installing the [scaffold](https://github.com/govcms/scaffold), and skipping to **step 3**.
-
-1. Validate that you have the tools you need. Refer to [these commands](https://gist.github.com/simesy/342b6cbd3d20cd2764e17ad162d3c3cb) for help.
-
-2. Clone your project's Gitlab repository. The clone URL can be found at `https://projects.govcms.gov.au/ORGNAME/PROJECTNAME`
-
-    Your should ensure that the location of your clone is included in [Docker's file sharing](https://docs.docker.com/docker-for-mac/#file-sharing).
-
-    ```bash
-    git clone git@projects.govcms.gov.au:ORGNAME/PROJECTNAME.git
-    cd PROJECTNAME
-    ```
-
-3. Build and start the docker containers:
-
-    ```bash
-    # This is identical to `ahoy up`.
-    docker-compose up -d
-    ```
-
-4. Build the codebase with Composer:
-
-    ```bash
-    # This is identical to `ahoy composer install`.
-    docker-compose exec -T test composer install
-    ```
-
-5. Install a vanilla GovCMS site:
-
-    ```bash
-    # This is identical to `ahoy install`.
-    docker-compose exec -T test drush si -y govcms
-    ```
-
-6. You should have a running site now, which you can visit at `http://PROJECTNAME.docker.amazee.io`. To login to Drupal as user 1 you can run:
-
-    ```bash
-    # This is identical to `ahoy login`.
-    docker-compose exec -T test drush uli
-    ```
+```export COMPOSE_BAKE=false```
