@@ -21,4 +21,4 @@ lagoon config default -l govcms
 lagoon list projects
 ```
 
-[Read the docs](https://amazeeio.github.io/lagoon-cli/commands/lagoon/) for more information.
+[Read the docs](https://uselagoon.github.io/lagoon-cli/commands/lagoon/) for more information.
