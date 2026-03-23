@@ -38,8 +38,8 @@ nav = [
 ]
 
 [project.theme]
-logo = "assets/img/govcms-logo.png"
-favicon = "assets/img/govcms-logo.png"
+logo = "assets/img/govcms-star-white.png"
+favicon = "assets/img/govcms-star.png"
 
 [project.theme.icon]
 repo = "fontawesome/brands/github"
