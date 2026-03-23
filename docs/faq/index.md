@@ -100,7 +100,7 @@ Yes. The GovCMS profile doesn't suit all needs and new content types, paragraph 
 
 **Can I allow `<iframe>`s and `<script>`s in my text filters?**
 
-Yes, however these are powerful tags which can cause issues if mis-used. We recommend creating an "Expert" text format, disabling the WYSIWYG for this format, and only allowing access to a role like Site Administrator.
+Yes, however these are powerful tags which can cause issues if misused. We recommend creating an "Expert" text format, disabling the WYSIWYG for this format, and only allowing access to a role like Site Administrator.
 
 **Can I customise my GitLab CI?**
 

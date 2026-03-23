@@ -352,7 +352,7 @@ If your D7 site loads with no CSS, and shows this error message:
 
 If you see something like this inside the container when clearing the cache:
 
-`file_put_contents(temporary://fileFMchCd): failed to open stream`
+`file_put_contents(temporary://random-file-name): failed to open stream`
 
 it may be that the permissions of `/sites/default/` is set to `555`. Try changing it with `chmod 755 /sites/default` and reload the page.
 

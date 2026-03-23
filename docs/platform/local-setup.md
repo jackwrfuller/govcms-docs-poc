@@ -60,7 +60,7 @@ This will help to address many of the common issues users have had with Pygmy in
         2. GO to KeyChain Access
         3. GO to System / System roots
         4. Find Zscaler Root SSL
-        5. Export the SSL file, Set the file format as "Privacy Enchanced Mail (.pem)" to [pygmy folder] -> e.g. 'zscaler.pem'.
+        5. Export the SSL file, Set the file format as "Privacy Enhanced Mail (.pem)" to [pygmy folder] -> e.g. 'zscaler.pem'.
         6. Replace these lines in the `[pygmy folder]/Dockerfile`:
 
         ```
