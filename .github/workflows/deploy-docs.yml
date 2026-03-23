@@ -5,19 +5,21 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
-  deploy:
+  build:
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Build
+        uses: Tiryoh/actions-mkdocs@v0
         with:
-          python-version: '3.x'
-
-      - run: pip install -r requirements.txt
-
-      - run: mkdocs gh-deploy --force
+          mkdocs_version: 'latest' # option
+          requirements: './requirements.txt' # option
+          configfile: './mkdocs.yml' # option
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
