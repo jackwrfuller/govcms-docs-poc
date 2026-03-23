@@ -2082,7 +2082,7 @@
 <p>If your D7 site loads with no CSS, and shows this error message:</p>
 <p><code>The file could not be created.</code></p>
 <p>If you see something like this inside the container when clearing the cache:</p>
-<p><code>file_put_contents(temporary://fileFMchCd): failed to open stream</code></p>
+<p><code>file_put_contents(temporary://random-file-name): failed to open stream</code></p>
 <p>it may be that the permissions of <code>/sites/default/</code> is set to <code>555</code>. Try changing it with <code>chmod 755 /sites/default</code> and reload the page.</p>
 <h2 id="mailhog-not-receiving-emails-sendmail-cannot-open-mxoutlagoonsvc465">Mailhog not receiving emails / <code>sendmail: Cannot open mxout.lagoon.svc:465</code><a class="headerlink" href="#mailhog-not-receiving-emails-sendmail-cannot-open-mxoutlagoonsvc465" title="Permanent link">&para;</a></h2>
 <p>Occasionally on MacOS, the port used to send mail within the Docker containers is blocked.</p>
