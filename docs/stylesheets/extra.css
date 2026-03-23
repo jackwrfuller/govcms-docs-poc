@@ -1,12 +1,12 @@
 /* GovCMS Custom Colour Scheme */
-/* Primary: rgb(26, 40, 81)  — Navy */
+/* Primary: rgb(27, 44, 93)  — Navy */
 /* Accent:  rgb(217, 27, 106) — Magenta */
 
 /* ── Light mode ──────────────────────────────────── */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #1a2851;
-  --md-primary-fg-color--light: #2b3f73;
-  --md-primary-fg-color--dark:  #111b3a;
+  --md-primary-fg-color:        #1b2c5d;
+  --md-primary-fg-color--light: #2c4078;
+  --md-primary-fg-color--dark:  #121e40;
   --md-primary-bg-color:        #ffffff;
   --md-primary-bg-color--light: #ffffff;
 
@@ -15,40 +15,62 @@
   --md-accent-bg-color:         #ffffff;
 
   --md-default-bg-color:        #ffffff;
-  --md-default-fg-color:        #1a2851;
+  --md-default-fg-color:        #1b2c5d;
 
   /* Typeset colours */
-  --md-typeset-color:           rgba(26, 40, 81, 0.87);
+  --md-typeset-color:           rgba(27, 44, 93, 0.87);
   --md-typeset-a-color:         #d91b6a;
 
   /* Header / tabs / footer */
-  --md-footer-bg-color:         #1a2851;
-  --md-footer-bg-color--dark:   #111b3a;
+  --md-footer-bg-color:         #1b2c5d;
+  --md-footer-bg-color--dark:   #121e40;
 }
 
 /* ── Dark mode ───────────────────────────────────── */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #1a2851;
-  --md-primary-fg-color--light: #2b3f73;
-  --md-primary-fg-color--dark:  #111b3a;
+  --md-primary-fg-color:        #1b2c5d;
+  --md-primary-fg-color--light: #2c4078;
+  --md-primary-fg-color--dark:  #121e40;
 
   --md-accent-fg-color:         #e84d8a;
   --md-accent-fg-color--transparent: rgba(232, 77, 138, 0.1);
 
   --md-typeset-a-color:         #e84d8a;
 
-  --md-footer-bg-color:         #0d1326;
-  --md-footer-bg-color--dark:   #080d1c;
+  --md-footer-bg-color:         #0e1730;
+  --md-footer-bg-color--dark:   #0a1020;
 }
 
 /* ── Header bar — always navy ────────────────────── */
 .md-header {
-  background-color: #1a2851;
+  background-color: #1b2c5d;
+  color: #ffffff;
+}
+
+/* ── Header title text — white on navy ─────────────── */
+.md-header__title,
+.md-header__topic,
+.md-header .md-ellipsis {
+  color: #ffffff;
+}
+
+/* ── Search button — visible on navy header ─────── */
+.md-search__button {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.md-search__button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ── Tabs bar ────────────────────────────────────── */
 .md-tabs {
-  background-color: #1a2851;
+  background-color: #1b2c5d;
 }
 
 /* ── Navigation link hover / active accent ───────── */
