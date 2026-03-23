@@ -145,11 +145,6 @@ If you want to run a new/existing Drupal site locally in the GovCMS7 Scaffold Pa
 
 Windows users have trouble with Pygmy more than anything else. There is a [Go version](https://github.com/fubarhouse/pygmy-go) in the pipeline to hopefully solve these issues. Otherwise try these steps:
 
-* install pygmy using Ruby
-* go to https://github.com/fubarhouse/pygmy/tree/feature/windows
-* download the files as a .zip
-* unzip them to a folder, copy the bin and lib folders over the ones in the pygmy sub folder wherever ruby was installed: something like `c:\ruby24x64\lib\ruby\gems\2.4.0\gems\pygmy-0.9.10`
-
 ### HTTPS
 
 If you're using the experimental trial version of Pygmy written in Go, the following will configure Pygmy with HTTPS. However, the `/stats` page won't be available until the [respective PR](https://github.com/amazeeio/docker-haproxy/pull/5) is merged.
@@ -202,5 +197,5 @@ There are several ways to refresh the database of a remote environment to match 
 Delete the remote environments and:
 
 1. **Easiest:** Re-trigger the `build` step in the deployment pipeline for that branch
-2. Push an empty commit to re-trigger the deployment, [as outlined by GovCMS](https://www.govcms.support/support/solutions/articles/51000022851-how-can-i-update-a-secondary-environment-with-the-latest-database-from-the-live-site-)
+2. Push an empty commit to re-trigger the deployment
 3. Delete the remote _branch_ and re-push your local copy to re-trigger the deployment.

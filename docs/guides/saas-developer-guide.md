@@ -57,7 +57,7 @@ Version numbers are noted where applicable.
 **Linux/Mac users**
 
 * [Ruby](https://www.ruby-lang.org/en/) - A dynamic programming language, allows running of `pygmy`
-* [pygmy](https://docs.amazee.io/local_docker_development/pygmy.html#installation) v0.9.10 min - A miniature local web server (You might need `sudo` for this depending on your ruby configuration)
+* [pygmy](https://pygmystack.github.io/pygmy/) v0.9.10 min - A miniature local web server (You might need `sudo` for this depending on your ruby configuration)
 
 **Windows users**
 
@@ -99,7 +99,7 @@ There's two scenarios where HTTPS is used:
 
 Check out the GitLab guides on:
 
-* [creating and using SSH keys](https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair)
+* [creating and using SSH keys](https://docs.gitlab.com/user/ssh/#generate-an-ssh-key-pair)
 * [creating PATs](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) and [using them in Private Repositories](https://projects.govcms.gov.au/help/user/project/container_registry#using-with-private-projects)
 
 If using SSH, you can test and debug your connectivity with this:
@@ -542,9 +542,7 @@ services:
 
 2. If Docker starts automatically with Windows, you may get an error like `Error starting userland proxy: mkdir /port/tcp:...`. This is a [known bug in Docker](https://github.com/docker/for-win/issues/1038) related to Windows Fast Boot. Either disable Fast Boot, or restart Docker once Windows loads.
 
-3. If using Git Bash on Windows, you may get path misinterpretation errors. This is a [known bug in Docker](https://github.com/docker/toolbox/issues/673). Use another CLI like Command Prompt.
-
-4. Even if you _disable_ the setting 'Start Docker Desktop when you log in', Docker may start at boot regardless. Check your Startup apps list (`Ctrl + Shift + Esc` > `Startup tab`).
+3. Even if you _disable_ the setting 'Start Docker Desktop when you log in', Docker may start at boot regardless. Check your Startup apps list (`Ctrl + Shift + Esc` > `Startup tab`).
 
 ## Notes
 

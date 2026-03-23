@@ -1,7 +1,5 @@
 # Variables
 
-[How to set up Single Sign-On (SSO) on GovCMS SaaS](https://www.govcms.support/support/solutions/articles/51000438891)
-
 This page documents the environment variables and other variables used in the platform - specifically ones that GovCMS has created. You should check [Lagoon Variables](https://docs.lagoon.sh/concepts-advanced/environment-variables/) too.
 
 If you see one of these variables in the wild, please ensure the documentation lives here, and update the variable comment in code to point to `https://govcms.gov.au/wiki_vars#VARIABLE_NAME`.

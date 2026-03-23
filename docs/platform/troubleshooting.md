@@ -334,8 +334,6 @@ Drupal\encrypt\Exception\EncryptException: This encryption method requires a 32 
 in Drupal\encrypt\EncryptService->validate() (line 115 of modules/contrib/encrypt/src/EncryptService.php).
 ```
 
-To log in, you must either simply disable TFA as User 1 at `/admin/config/people/tfa`, or [configure TFA to run locally](https://www.govcms.support/support/solutions/articles/51000197889-how-to-use-test-tfa-locally). Note that the latter is not the most reliable method. It involves editing `docker-compose.yml`, which is a locked file in SaaS, and rebuilding your containers, and the changes should not be committed.
-
 You can unblock User 1 and reset the password with Drush:
 
 ```bash
@@ -343,6 +341,8 @@ ahoy drush uublk $(ahoy drush uinf --uid=1 --field=name)
 ahoy drush ev '$u=\Drupal\user\Entity\User::load(1); $u->set("field_password_expiration", "0"); $u->set("field_last_password_reset", date("Y-m-d\TH:i:s")); $u->save();'
 echo "User 1 unblocked. Please reset the password with $ drush upwd <username> 'password'"
 ```
+
+or by running ```ahoy login```.
 
 ## D7 SaaS site loads with no theme, complaining of being unable to create files
 
