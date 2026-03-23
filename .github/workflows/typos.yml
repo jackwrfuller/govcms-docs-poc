@@ -1,6 +1,9 @@
 name: Typo Check
 
 on:
+  push:
+    paths:
+      - 'docs/**'
   pull_request:
     paths:
       - 'docs/**'
