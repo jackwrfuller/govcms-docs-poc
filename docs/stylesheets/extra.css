@@ -44,6 +44,14 @@
 /* ── Header bar — always navy ────────────────────── */
 .md-header {
   background-color: #1a2851;
+  color: #ffffff;
+}
+
+/* ── Header title text — white on navy ─────────────── */
+.md-header__title,
+.md-header__topic,
+.md-header .md-ellipsis {
+  color: #ffffff;
 }
 
 /* ── Tabs bar ────────────────────────────────────── */

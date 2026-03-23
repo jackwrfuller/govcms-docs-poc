@@ -1,0 +1,89 @@
+[project]
+site_name = "GovCMS Developer Documentation"
+site_description = "Community maintained developer documentation for the GovCMS platform and Drupal distribution."
+site_url = "https://jackwrfuller.github.io/govcms-docs-poc/"
+repo_url = "https://github.com/govCMS/GovCMS"
+repo_name = "govCMS/GovCMS"
+extra_css = ["stylesheets/extra.css"]
+nav = [
+  { Home = "index.md" },
+  { Platform = [
+    { Overview = "platform/overview.md" },
+    { "Local Setup" = "platform/local-setup.md" },
+    { Variables = "platform/variables.md" },
+    { "Advanced Topics" = "platform/advanced-topics.md" },
+    { Troubleshooting = "platform/troubleshooting.md" },
+    { "File Structure" = "platform/file-structure.md" },
+    { Debugging = "platform/debugging.md" },
+  ]},
+  { Distribution = [
+    { Overview = "distribution/overview.md" },
+    { "Config Strategies" = "distribution/config-strategies.md" },
+    { "Project Scaffold" = "distribution/project-scaffold.md" },
+  ]},
+  { "FAQ & Guides" = [
+    { FAQ = "faq/index.md" },
+    { "Modifying GovCMS" = "faq/modifying-govcms.md" },
+    { "Tips and Tricks" = "faq/tips-and-tricks.md" },
+  ]},
+  { Maintenance = [
+    { Overview = "maintenance/index.md" },
+    { Release = "maintenance/release.md" },
+    { Lifecycle = "maintenance/lifecycle.md" },
+  ]},
+  { Guides = [
+    { "SaaS Developer Guide" = "guides/saas-developer-guide.md" },
+    { "Lagoon CLI" = "guides/lagoon-cli.md" },
+  ]},
+]
+
+[project.theme]
+logo = "assets/img/govcms-logo.png"
+favicon = "assets/img/govcms-logo.png"
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+[project.theme.features]
+navigation.sections = true
+navigation.expand = true
+navigation.top = true
+search.suggest = true
+search.highlight = true
+content.code.copy = true
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.tables]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.md_in_html]
+
+[project.markdown_extensions.toc]
+permalink = true
+
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.superfences]
+
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+
