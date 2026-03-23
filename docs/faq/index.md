@@ -88,7 +88,7 @@ It involves putting a copy of your database and `sites/default/files` up into th
 
 **Can I request a new module?**
 
-Yes. However. Since this would need to be added to the distribution it's a difficult process. We regression test the distribution for each release and each new module makes this a harder process. We also have some issues with build performance given the size of the distribution. If you want to request a module, please be thorough and use this [issue template](https://github.com/govCMS/govCMS8/issues/new?assignees=&labels=enhancement&template=module-request.md&title=Add+XXXX+module+to+GovCMS8) to do so.
+Yes. However. Since this would need to be added to the distribution it's a difficult process. We regression test the distribution for each release and each new module makes this a harder process. We also have some issues with build performance given the size of the distribution. If you want to request a module, please be thorough and use this [issue template](https://github.com/govCMS/GovCMS/issues/new?template=module-request.md) to do so.
 
 **Can I use the `minimal` or `standard` Drupal profile?**
 

@@ -29,20 +29,19 @@ The `composer.json` is intentionally simple because the ideal state for the host
 
 | Package | Description |
 | --- | --- |
-| [govcms/govcms](https://github.com/govCMS/govcms/govcms8) | The GovCMS Drupal distribution. |
-| [govcms/scaffold-tooling](https://github.com/govCMS/govcms/scaffold-tooling) | Scripts, PHP settings, packages that are not in the distro. Installed to `vendor/govcms/scaffold-tooling` |
-| [govcms/custom](https://github.com/govCMS/govcms8-scaffold-paas/tree/master/custom/composer) | Points the `custom/composer` directory, as is a place to define custom composer packages and patches. Mostly applicable to PaaS sites. |
-| [govcms/require-dev](https://github.com/govCMS/govcms/require-dev) | Mainly testing tools that are not required for production. Installed to `vendor/govcms/require-dev` |
+| [govcms/govcms](https://github.com/govCMS/GovCMS) | The GovCMS Drupal distribution. |
+| [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling) | Scripts, PHP settings, packages that are not in the distro. Installed to `vendor/govcms/scaffold-tooling` |
+| [govcms/custom](https://github.com/govCMS/scaffold/tree/develop/custom/composer) | Points the `custom/composer` directory, as is a place to define custom composer packages and patches. Mostly applicable to PaaS sites. |
 
 ## Drupal Settings
 
-The scaffold has a single [settings.php](https://github.com/govCMS/govcms8-scaffold-paas/blob/develop/web/sites/default/settings.php) file which includes additional files. We manage most of these files in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/tree/develop/drupal/settings) so that they are the same for all sites by default.
+The scaffold has a single [settings.php](https://github.com/govCMS/scaffold-tooling/blob/10.x-develop/drupal/settings/settings.php) file which includes additional files. We manage most of these files in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/tree/develop/drupal/settings) so that they are the same for all sites by default.
 
 | Include | Where | What it does |
 | --- | --- | --- |
-| `all.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/develop/drupal/settings/all.settings.php) | Universally ideal default settings for GovCMS clients |
-| `lagoon.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/develop/drupal/settings/lagoon.settings.php) | Ideal settings for running in Lagoon containers |
-| `development.` OR `production.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/develop/drupal/settings/development.settings.php) | Ideal settings for production VS non-production sites |
+| `all.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/10.x-develop/drupal/settings/all.settings.php) | Universally ideal default settings for GovCMS clients |
+| `lagoon.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/10.x-develop/drupal/settings/lagoon.settings.php) | Ideal settings for running in Lagoon containers |
+| `development.` OR `production.settings.php` | [scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/10.x-develop/drupal/settings/development.settings.php) | Ideal settings for production VS non-production sites |
 | `project.settings.php` | `web/sites/default` | Optional, lives in Git, specific for your project. |
 | `local.settings.php` | `web/sites/default` | Local file not in Git, usually custom for a developer |
 
@@ -50,11 +49,11 @@ The scaffold has a single [settings.php](https://github.com/govCMS/govcms8-scaff
 
 After you have installed Drupal, there are a bunch of scripts in `vendor/bin` which we use for testing. Our scripts are prefixed with `govcms-*`. You don't need to use these scripts but they do cover a lot of standard testing scenarios and show how to do linting and other tasks with the tools in the distribution.
 
-The scripts live in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/tree/develop/scripts) but beware that some rely on packages installed by [govcms/require-dev](https://github.com/govCMS/require-dev).
+The scripts live in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/tree/10.x-develop/scripts) but beware that some rely on packages installed by [govcms/require-dev](https://github.com/govCMS/require-dev).
 
 ## Gitlab CI
 
-The primary Gitlab CI file actually lives in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/develop/.gitlab-ci-main.yml) so that we can manage it in one place.
+The primary Gitlab CI file actually lives in [govcms/scaffold-tooling](https://github.com/govCMS/scaffold-tooling/blob/10.x-develop/.gitlab-ci-main.yml) so that we can manage it in one place.
 
 You can enable (or disable) a range of jobs in Gitlab. Enabling every job would be redundant and would add a lot of time to your build. The types of jobs available are:
 
