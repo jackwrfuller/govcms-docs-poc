@@ -1,0 +1,4 @@
+exclude = [
+    "https://www.govcms.gov.au/.*",
+    "https://www.finance.gov.au/.*",
+]

@@ -10,14 +10,14 @@ If your site is using the GovCMS platform, and you want to develop this site loc
 
 * [Git](https://git-scm.com/downloads)
 * Docker & docker-compose [Windows](https://docs.docker.com/docker-for-windows/install/), [OSX](https://docs.docker.com/docker-for-mac/install/)
-* [Pygmy](https://pygmy.readthedocs.io/en/master/installation/)
+* [Pygmy](https://pygmystack.github.io/pygmy/local_docker_development/)
 * [Ahoy](http://ahoy-cli.readthedocs.io/en/latest/#installation) (recommended)
 
 ## Note for Windows
 
 We are trying to improve the Windows experience. Most commands need to be carried out in Powershell but some may require [Git-bash](https://gitforwindows.org/). Use both tools with elevated permissions. DOS prompt is not appropriate for local development.
 
-See also the [Amazee docs](https://docs.amazee.io/local_docker_development/windows.html#windows) as well as the Windows-specific tips in the [SaaS developer guide](../guides/saas-developer-guide.md).
+See also the [Lagoon docs](https://docs.lagoon.sh/using-lagoon-the-basics/local-development-environments/) as well as the Windows-specific tips in the [SaaS developer guide](../guides/saas-developer-guide.md).
 
 ## Upcoming opportunities
 
