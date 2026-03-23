@@ -1,0 +1,63 @@
+/* GovCMS Custom Colour Scheme */
+/* Primary: rgb(26, 40, 81)  — Navy */
+/* Accent:  rgb(217, 27, 106) — Magenta */
+
+/* ── Light mode ──────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #1a2851;
+  --md-primary-fg-color--light: #2b3f73;
+  --md-primary-fg-color--dark:  #111b3a;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffff;
+
+  --md-accent-fg-color:         #d91b6a;
+  --md-accent-fg-color--transparent: rgba(217, 27, 106, 0.1);
+  --md-accent-bg-color:         #ffffff;
+
+  --md-default-bg-color:        #ffffff;
+  --md-default-fg-color:        #1a2851;
+
+  /* Typeset colours */
+  --md-typeset-color:           rgba(26, 40, 81, 0.87);
+  --md-typeset-a-color:         #d91b6a;
+
+  /* Header / tabs / footer */
+  --md-footer-bg-color:         #1a2851;
+  --md-footer-bg-color--dark:   #111b3a;
+}
+
+/* ── Dark mode ───────────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #1a2851;
+  --md-primary-fg-color--light: #2b3f73;
+  --md-primary-fg-color--dark:  #111b3a;
+
+  --md-accent-fg-color:         #e84d8a;
+  --md-accent-fg-color--transparent: rgba(232, 77, 138, 0.1);
+
+  --md-typeset-a-color:         #e84d8a;
+
+  --md-footer-bg-color:         #0d1326;
+  --md-footer-bg-color--dark:   #080d1c;
+}
+
+/* ── Header bar — always navy ────────────────────── */
+.md-header {
+  background-color: #1a2851;
+}
+
+/* ── Tabs bar ────────────────────────────────────── */
+.md-tabs {
+  background-color: #1a2851;
+}
+
+/* ── Navigation link hover / active accent ───────── */
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: #d91b6a;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #e84d8a;
+}
