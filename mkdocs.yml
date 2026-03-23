@@ -1,0 +1,74 @@
+site_name: GovCMS Developer Documentation
+site_description: Community maintained developer documentation for the GovCMS platform and Drupal distribution.
+site_url: https://jackwrfuller.github.io/govcms-docs-poc/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+repo_url: https://github.com/govCMS/govCMS
+repo_name: govCMS/govCMS
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Platform:
+    - Overview: platform/overview.md
+    - Local Setup: platform/local-setup.md
+    - Variables: platform/variables.md
+    - Advanced Topics: platform/advanced-topics.md
+    - Troubleshooting: platform/troubleshooting.md
+    - File Structure: platform/file-structure.md
+    - Debugging: platform/debugging.md
+  - Distribution:
+    - Overview: distribution/overview.md
+    - Config Strategies: distribution/config-strategies.md
+    - Project Scaffold: distribution/project-scaffold.md
+  - FAQ & Guides:
+    - FAQ: faq/index.md
+    - Modifying GovCMS: faq/modifying-govcms.md
+    - Tips and Tricks: faq/tips-and-tricks.md
+  - Maintenance:
+    - Overview: maintenance/index.md
+    - Release: maintenance/release.md
+    - Lifecycle: maintenance/lifecycle.md
+  - Guides:
+    - SaaS Developer Guide: guides/saas-developer-guide.md
+    - Lagoon CLI: guides/lagoon-cli.md
