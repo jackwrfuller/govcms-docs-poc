@@ -18,9 +18,10 @@ nav = [
   ]},
   { "The GovCMS Distribution" = [
     { "Overview" = "distribution/overview.md" },
-    { "Contributing" = "distribution/contributing.md" },
+    { "Modules" = "distribution/modules.md" },
     { "Module Lifecycle" = "distribution/module-lifecycle.md" },
     { "Release Process" = "distribution/release-process.md" },
+    { "Contributing" = "distribution/contributing.md" },
   ]},
   { "Developing on GovCMS" = [
     { "Local Development Setup" = "developing/local-dev-setup.md" },

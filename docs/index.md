@@ -1,18 +1,13 @@
-# GovCMS Developer Wiki
+# GovCMS Developer Documentation
 
-Welcome to the GovCMS developer wiki. This is a community maintained wiki which is curated by the GovCMS team at the Department of Finance. The goal is to use clear language, useful overviews, and supplement this with links to other resources.
+Welcome to the GovCMS developer documentation.
+This is a community-maintained set of documentation curated by the GovCMS team at the Department of Finance. 
+This documentation is intended to be a central repository for GovCMS developers and any other users of GovCMS's open-source projects.
 
 | **Wiki purpose** | **Wiki guidelines** |
 | --- | --- |
 | <ul><li>Information about GovCMS the Drupal distribution.</li><li>Information about GovCMS the hosting platform (aka Lagoon).</li><li>Help for various platforms like Windows, Linux and MacOS.</li><li>Tips and troubleshooting information.</li></ul> | <ul><li>You can create issues in the [issue queue](https://github.com/govCMS/govCMS/issues) for quick feedback/updates.</li></ul> |
 
-## Finding resources
-
-This page is useful to get a bird's eye view of the GovCMS digital landscape. Included here are:
-
-* [Useful links](#useful-links)
-* [Digital communication channels](#getting-help)
-* [Git repositories and Docker Hub registry locations](#git-repos-and-services)
 
 ## Useful links
 
@@ -32,21 +27,29 @@ Here are some quick links to get you to started:
 
 ## Getting help
 
-There are a number of communication channels to use both formal and informal. A variety of channels ensures that GovCMS users are able to share information easily.
+There are a number of communication channels that both GovCMS customers and members of the public can take advantage of to receive support:
 
-* [Help desk](https://www.govcms.support/support/login) for existing customers
+* [GovCMS Service Desk](https://www.govcms.support/support/login) for existing GovCMS customers
 * [GovCMS on GovTeams](https://www.govteams.gov.au/register)
 * [Drupal Slack](https://www.drupal.org/join-slack) (#australia-nz, #govcms)
-* GovCMS Slack - join #govcms above and ask for an invite
+* GovCMS Slack - an invite-only Slack for GovCMS customers. To join, request access in the #govcms channel in the Drupal Slack (see above)
+
+!!! info
+    If you are an existing GovCMS customer, the recommended place to receive support is via the GovCMS Service Desk.
+
+## Contributing to this documentation
+
+This documentation is intended to open to contributions from all members of the public, subject to review by members of the GovCMS team.
+Contributions can be made via Pull Requests to this documentation's GitHub repository [here](https://github.com/govCMS/docs).
 
 ## Git repos and services
 
 The majority of public artifacts are found in either in Github or Docker Hub. This page section is not intended to be a complete list, it does not list obsolete services and repositories for example.
 
-| Category | Drupal 9 and 10                                              |
+| Resource | Link  |
 | --- |----|
-| Status | Active (Drupal 10) :white_check_mark:|
-| Templates | [SaaS & PaaS](https://github.com/govcms/scaffold)|
-| Drupal distribution | [GovCMS](https://github.com/govCMS/govcms)|
-| Composer | [Scaffold assets](https://github.com/govCMS/scaffold-tooling)|
-| Docker | [GovCMS Lagoon](https://github.com/govcms/govcmslagoon)|
+| Project Templates | [SaaS & PaaS](https://github.com/govcms/scaffold)|
+| GovCMS Drupal distribution | [GovCMS](https://github.com/govCMS/govcms)|
+| Scaffold Tooling | [Scaffold assets](https://github.com/govCMS/scaffold-tooling)|
+| GovCMS Lagoon-ready Images | [GovCMS Lagoon](https://github.com/govCMS/lagoon)|
+| GovCMS GitLab (existing customers only) | [GitLab](https://projects.govcms.gov.au/)
