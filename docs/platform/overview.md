@@ -1,4 +1,6 @@
-# GovCMS Platform
+# The GovCMS Platform
+
+![GovCMS Architecture](../assets/img/govcms-architecture.png)
 
 The GovCMS hosting platform is designed to host Drupal CMS websites and support continuous deployment. It uses containerisation to segregate projects and scale to meet traffic demands, as opposed to traditional shared, virtual or dedicated hosting.
 

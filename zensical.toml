@@ -7,33 +7,31 @@ repo_name = "govCMS/GovCMS"
 extra_css = ["stylesheets/extra.css"]
 nav = [
   { Home = "index.md" },
-  { Platform = [
-    { Overview = "platform/overview.md" },
-    { "Local Setup" = "platform/local-setup.md" },
-    { Variables = "platform/variables.md" },
-    { "Advanced Topics" = "platform/advanced-topics.md" },
-    { Troubleshooting = "platform/troubleshooting.md" },
-    { "File Structure" = "platform/file-structure.md" },
-    { Debugging = "platform/debugging.md" },
+  { "The GovCMS Platform" = [
+    { "Overview" = "platform/overview.md" },
+    { "Lagoon" = "platform/lagoon.md" },
+    { "GovCMS Lagoon-ready Images" = "platform/govcms-lagoon-ready-images.md" },
+    { "Scaffold-Tooling" = "platform/scaffold-tooling.md" },
+    { "Project Scaffolds" = "platform/project-scaffolds.md" },
+    { "Akamai CDN/WAF" = "platform/akamai.md" },
+    { "SaaS vs PaaS" = "platform/saas-vs-pass.md" },
   ]},
-  { Distribution = [
-    { Overview = "distribution/overview.md" },
-    { "Config Strategies" = "distribution/config-strategies.md" },
-    { "Project Scaffold" = "distribution/project-scaffold.md" },
+  { "The GovCMS Distribution" = [
+    { "Overview" = "distribution/overview.md" },
+    { "Contributing" = "distribution/contributing.md" },
+    { "Module Lifecycle" = "distribution/module-lifecycle.md" },
+    { "Release Process" = "distribution/release-process.md" },
   ]},
-  { "FAQ & Guides" = [
-    { FAQ = "faq/index.md" },
-    { "Modifying GovCMS" = "faq/modifying-govcms.md" },
-    { "Tips and Tricks" = "faq/tips-and-tricks.md" },
+  { "Developing on GovCMS" = [
+    { "Local Development Setup" = "developing/local-dev-setup.md" },
+    { "Drupal Configuration Strategies" = "developing/drupal-config-strategies.md" },
+    { "CI/CD" = "developing/ci-cd.md" },
+    { "Backups" = "developing/backups.md" },
+    { "Cron" = "developing/cron.md" },
+    { "Forklifts" = "developing/forklifts.md" },
   ]},
-  { Maintenance = [
-    { Overview = "maintenance/index.md" },
-    { Release = "maintenance/release.md" },
-    { Lifecycle = "maintenance/lifecycle.md" },
-  ]},
-  { Guides = [
-    { "SaaS Developer Guide" = "guides/saas-developer-guide.md" },
-    { "Lagoon CLI" = "guides/lagoon-cli.md" },
+  { "FAQs" = [
+    
   ]},
 ]
 
