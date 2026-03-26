@@ -12,7 +12,7 @@ nav = [
     { "Lagoon" = "platform/lagoon.md" },
     { "GovCMS Lagoon-ready Images" = "platform/govcms-lagoon-ready-images.md" },
     { "Scaffold-Tooling" = "platform/scaffold-tooling.md" },
-    { "Project Scaffolds" = "platform/project-scaffolds.md" },
+    { "Project Templates" = "platform/project-scaffolds.md" },
     { "Akamai CDN/WAF" = "platform/akamai.md" },
     { "SaaS vs PaaS" = "platform/saas-vs-pass.md" },
   ]},
