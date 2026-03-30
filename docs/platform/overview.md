@@ -44,18 +44,35 @@ For this, GovCMS uses [Lagoon](https://lagoon.sh/).
 
 Lagoon is an open-source web application delivery platform for Kubernetes, developed by [Amazee.io](https://amazee.io).
 In short, you provide the cluster and your application in the form of a docker-compose file in a Git repository, and Lagoon handles the rest.
-While it was originally created to allow for the easy deployment of traditionally non-cloud native applications like CMS such as Drupal, Lagoon is capable of handling most containerisable applications.  
+While it was originally created to allow for the easy deployment of traditionally non-cloud native applications such as Drupal, Lagoon is capable of deploying most containerisable applications.
+Lagoon deploys an application by reading from a Git repository, which for GovCMS customers is our [GitLab](https://projects.govcms.gov.au).
 
 You can learn more about Lagoon [here](./lagoon) or in the [Lagoon documentation](https://docs.lagoon.sh).
 
 ## Application Layer
 
+GovCMS develops and maintains a Drupal-based content management system (CMS) referred to as the [GovCMS Distribution](../distribution/overview).
+The GovCMS Distribution is a carefully curated packaging of Drupal, the underlying CMS technology, with a selection of _modules_ that enhance Drupal's base functionality.
 
+The GovCMS Distribution is productionised with three other important components:
+
+- The [GovCMS Lagoon Images](./govcms-lagoon-ready-images) are responsible for preparing container images designed specifically to run on a Lagoon platform. See also the [GithHub repository](https://github.com/govCMS/lagoon).
+- The [Scaffold Tooling](./scaffold-tooling) composer package is a collection of configuration, scripts, and packages used by the Lagoon Images to support the project templates. See also the [GitHub repository](https://github.com/govCMS/scaffold-tooling).
+- The [Project Templates](./project-scaffolds) (or _scaffold_ as it is often called) are the starter templates for GovCMS SaaS and GovCMS PaaS projects. When a new project is provisioned on GovCMS, it will start from one of [these templates](https://github.com/govCMS/scaffold). 
+
+While GovCMS is tailored to support PHP and Drupal-based workloads, Lagoon is the underlying platform and so GovCMS is capable of hosting many different kinds of applications.
+GovCMS customers run services such as:
+
+- Redis
+- Solr
+- Node
+- Python
 
 
 ### GitLab
 
-
+Lagoon deploys all applications from Git repositories.
+All GovCMS customers are given access to our [self-managed GitLab instance](https://projects.govcms.gov.au).
 
 
 
