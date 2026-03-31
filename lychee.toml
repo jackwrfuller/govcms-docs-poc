@@ -1,4 +1,7 @@
 exclude = [
     "https://www.govcms.gov.au/.*",
     "https://www.finance.gov.au/.*",
+    "https://www.govteams.gov.au/register",
+    "https://www.govcms.support/",
+    "https://kubernetes.io/docs/concepts/overview/"
 ]
